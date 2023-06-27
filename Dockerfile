@@ -12,5 +12,5 @@ RUN apk add --no-cache unzip wget && \
     mv ./qbittorrent-nox /usr/bin && \
     chmod +x /usr/bin/qbittorrent && \
     rm -rf ./* && \
-    apl del --purge unzip wget
+    apk del --purge unzip wget
     
