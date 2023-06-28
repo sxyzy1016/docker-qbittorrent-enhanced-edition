@@ -1,4 +1,4 @@
-From linuxserver/qbittorrent:latest
+FROM linuxserver/qbittorrent:latest
 
 ARG QBT_ENH_VERSION
 
