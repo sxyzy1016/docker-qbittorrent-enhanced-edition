@@ -10,7 +10,7 @@ Links:
 
 https://www.qbittorrent.org
 
-https://github.com/c0re100/qBittorrent-Enhanced-Edition
+https://github.com/tlan16/docker-qbittorrent-enhanced-edition
 
 https://github.com/linuxserver/docker-qbittorrent
 
