@@ -1,18 +1,4 @@
-# docker-qbittorrent-enhanced-edition
+Dockerhub: https://hub.docker.com/r/tlan16/qbittorrent-enhanced
 
-Dockerfile for qBittorrent-Enhanced-Edition.
-
-Based on linuxserver/qbittorrent docker image and amd64 only.
-
-Only for my own usage.
-
-Links:
-
-https://www.qbittorrent.org
-
-https://github.com/tlan16/docker-qbittorrent-enhanced-edition
-
-https://github.com/linuxserver/docker-qbittorrent
-
-https://hub.docker.com/r/linuxserver/qbittorrent
+Dockerfile: https://github.com/tlan16/docker-qbittorrent-enhanced-edition/blob/main/Dockerfile
 
