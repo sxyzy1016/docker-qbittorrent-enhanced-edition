@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 ```
 
-This image is based on [linuxserver/docker-qbittorrent](https://github.com/linuxserver/docker-qbittorrent)
+This image is based on [linuxserver/docker-qbittorrent](https://github.com/linuxserver/docker-qbittorrent) and adds [qBittorrent-Enhanced-Edition](https://api.github.com/repos/c0re100/qBittorrent-Enhanced-Edition).
 
 ---
 
@@ -71,7 +71,7 @@ Find us at:
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-qbittorrent%2Fjob%2Fmaster%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-qbittorrent/job/master/)
 [![LSIO CI](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.linuxserver.io%2Flinuxserver%2Fqbittorrent%2Flatest%2Fci-status.yml)](https://ci-tests.linuxserver.io/linuxserver/qbittorrent/latest/index.html)
 
-The [Qbittorrent](https://www.qbittorrent.org/) project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.
+The [qBittorrent-Enhanced-Edition](https://api.github.com/repos/c0re100/qBittorrent-Enhanced-Edition) project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.
 
 [![qbittorrent](https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png)](https://www.qbittorrent.org/)
 
