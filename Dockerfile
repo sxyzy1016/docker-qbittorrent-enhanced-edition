@@ -22,3 +22,10 @@ RUN apk add --no-cache unzip && \
     chmod +x /usr/bin/qbittorrent-nox && \
     rm -rf ./* && \
     apk del --purge unzip
+
+ADD ./download-vuetorrent.sh download-vuetorrent.sh
+RUN sh ./download-vuetorrent.sh && \
+    unzip vuetorrent.zip && \
+    rm -f vuetorrent.zip download-vuetorrent.sh
+
+HEALTHCHECK CMD curl -f --head http://localhost:8080

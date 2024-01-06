@@ -20,13 +20,15 @@ services:
       - /path/to/appdata/config:/config
       - /path/to/downloads:/downloads
     ports:
-      - 8080:8080
-      - 6881:6881
-      - 6881:6881/udp
+      - "8080:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
     restart: unless-stopped
 ```
 
 This image is based on [linuxserver/docker-qbittorrent](https://github.com/linuxserver/docker-qbittorrent) and adds [qBittorrent-Enhanced-Edition](https://api.github.com/repos/c0re100/qBittorrent-Enhanced-Edition).
+
+Alternative UI [VueTorrent](https://github.com/WDaan/VueTorrent) is available at path `/vuetorrent`. Enable it by setting `tools` --> `options` --> `Web UI` --> `[✔️] Use alternative Web UI` to `Files location:` `/vuetorrent`.
 
 ---
 
@@ -60,43 +62,14 @@ Find us at:
 
 # [linuxserver/qbittorrent](https://github.com/linuxserver/docker-qbittorrent)
 
-[![Scarf.io pulls](https://scarf.sh/installs-badge/linuxserver-ci/linuxserver%2Fqbittorrent?color=94398d&label-color=555555&logo-color=ffffff&style=for-the-badge&package-type=docker)](https://scarf.sh/gateway/linuxserver-ci/docker/linuxserver%2Fqbittorrent)
-[![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-qbittorrent.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-qbittorrent)
-[![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-qbittorrent.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-qbittorrent/releases)
-[![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitHub%20Package&logo=github)](https://github.com/linuxserver/docker-qbittorrent/packages)
-[![GitLab Container Registry](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitLab%20Registry&logo=gitlab)](https://gitlab.com/linuxserver.io/docker-qbittorrent/container_registry)
-[![Quay.io](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=Quay.io)](https://quay.io/repository/linuxserver.io/qbittorrent)
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/qbittorrent.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/linuxserver/qbittorrent)
-[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/qbittorrent.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/linuxserver/qbittorrent)
-[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-qbittorrent%2Fjob%2Fmaster%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-qbittorrent/job/master/)
-[![LSIO CI](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.linuxserver.io%2Flinuxserver%2Fqbittorrent%2Flatest%2Fci-status.yml)](https://ci-tests.linuxserver.io/linuxserver/qbittorrent/latest/index.html)
-
 The [qBittorrent-Enhanced-Edition](https://api.github.com/repos/c0re100/qBittorrent-Enhanced-Edition) project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.
 
 [![qbittorrent](https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png)](https://www.qbittorrent.org/)
 
 ## Supported Architectures
 
-We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://distribution.github.io/distribution/spec/manifest-v2-2/#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/).
-
-Simply pulling `lscr.io/linuxserver/qbittorrent:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
-
-The architectures supported by this image are:
-
-| Architecture | Available | Tag |
-| :----: | :----: | ---- |
-| x86-64 | ✅ | amd64-\<version tag\> |
-| arm64 | ✅ | arm64v8-\<version tag\> |
-| armhf | ❌ | |
-
-## Version Tags
-
-This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
-
-| Tag | Available | Description |
-| :----: | :----: |--- |
-| latest | ✅ | Stable qbittorrent releases |
-| libtorrentv1 | ✅ | Static qbittorrent builds using libtorrent v1 |
+- [x] ARM
+- [x] amd64
 
 ## Application Setup
 
@@ -116,63 +89,21 @@ For example, to set the port to 8090 you need to set -p 8090:8090 and -e WEBUI_P
 
 To help you get started creating a container from this image you can either use docker-compose or the docker cli.
 
-### docker-compose (recommended, [click here for more info](https://docs.linuxserver.io/general/docker-compose))
-
-```yaml
----
-version: "2.1"
-services:
-  qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
-    container_name: qbittorrent
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      - WEBUI_PORT=8080
-    volumes:
-      - /path/to/appdata/config:/config
-      - /path/to/downloads:/downloads
-    ports:
-      - 8080:8080
-      - 6881:6881
-      - 6881:6881/udp
-    restart: unless-stopped
-```
-
-### docker cli ([click here for more info](https://docs.docker.com/engine/reference/commandline/cli/))
-
-```bash
-docker run -d \
-  --name=qbittorrent \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Etc/UTC \
-  -e WEBUI_PORT=8080 \
-  -p 8080:8080 \
-  -p 6881:6881 \
-  -p 6881:6881/udp \
-  -v /path/to/appdata/config:/config \
-  -v /path/to/downloads:/downloads \
-  --restart unless-stopped \
-  lscr.io/linuxserver/qbittorrent:latest
-```
-
 ## Parameters
 
 Containers are configured using parameters passed at runtime (such as those above). These parameters are separated by a colon and indicate `<external>:<internal>` respectively. For example, `-p 8080:80` would expose port `80` from inside the container to be accessible from the host's IP on port `8080` outside the container.
 
-| Parameter | Function |
-| :----: | --- |
-| `-p 8080` | WebUI |
-| `-p 6881` | tcp connection port |
-| `-p 6881/udp` | udp connection port |
-| `-e PUID=1000` | for UserID - see below for explanation |
-| `-e PGID=1000` | for GroupID - see below for explanation |
-| `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
-| `-e WEBUI_PORT=8080` | for changing the port of the web UI, see below for explanation |
-| `-v /config` | Contains all relevant configuration files. |
-| `-v /downloads` | Location of downloads on disk. |
+|      Parameter       | Function                                                                                                       |
+|:--------------------:|----------------------------------------------------------------------------------------------------------------|
+|      `-p 8080`       | WebUI                                                                                                          |
+|      `-p 6881`       | tcp connection port                                                                                            |
+|    `-p 6881/udp`     | udp connection port                                                                                            |
+|    `-e PUID=1000`    | for UserID - see below for explanation                                                                         |
+|    `-e PGID=1000`    | for GroupID - see below for explanation                                                                        |
+|   `-e TZ=Etc/UTC`    | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
+| `-e WEBUI_PORT=8080` | for changing the port of the web UI, see below for explanation                                                 |
+|     `-v /config`     | Contains all relevant configuration files.                                                                     |
+|   `-v /downloads`    | Location of downloads on disk.                                                                                 |
 
 ## Environment variables from files (Docker secrets)
 
