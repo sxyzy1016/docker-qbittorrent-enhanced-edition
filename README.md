@@ -2,7 +2,7 @@
 
 Dockerfile for qBittorrent-Enhanced-Edition.
 
-Based on linuxserver/qbittorrent docker image and amd64 only.
+Based on linuxserver/qbittorrent docker image and support amd64 and arm64 (arm64 no test).
 
 Only for my own usage.
 
